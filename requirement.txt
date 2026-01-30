@@ -8,6 +8,7 @@ flask-restful
 flask-jwt-extended
 sqlalchemy
 flask-migrate
+flask_sqlalchemy
 
 django
 django-environ
