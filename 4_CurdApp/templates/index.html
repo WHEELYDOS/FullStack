@@ -1,5 +1,80 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>This is index.html</h2>
+<div class="container mt-5">
+
+    <!-- Page Heading -->
+    <div class="mb-4 text-center">
+        <h2 class="fw-bold">Employee Management</h2>
+        <p class="text-muted">Add and view employee details</p>
+    </div>
+
+    <!-- Form Card -->
+    <div class="card shadow-sm mb-5">
+        <div class="card-header bg-dark text-white">
+            Add Employee
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="name@example.com" required>
+                    </div>
+                </div>
+
+                <!-- <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea name="desc" class="form-control" rows="3" placeholder="Optional description"></textarea>
+                </div> -->
+
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">
+                        Add Employee
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Employee Table -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-secondary text-white">
+            Employee Records
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-striped table-hover mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for emp in employees %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ emp.name }}</td>
+                        <td>{{ emp.email }}</td>
+                        <td>{{ emp.desc }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="4" class="text-center text-muted py-4">
+                            No employee records found
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
 {% endblock %}
