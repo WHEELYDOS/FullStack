@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container mt-4">
+
+    <h2 class="mb-4 text-center">About</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-dark text-white">Employee CRUD App</div>
+                <div class="card-body">
+                    <p>A simple CRUD application to manage employee records.</p>
+                    <ul>
+                        <li><strong>Create</strong> - Add new employees</li>
+                        <li><strong>Read</strong> - View all employees</li>
+                        <li><strong>Update</strong> - Edit employee details</li>
+                        <li><strong>Delete</strong> - Remove employees</li>
+                    </ul>
+                    <p class="text-muted">Built with Flask, SQLAlchemy, and Bootstrap.</p>
+                    <a href="/" class="btn btn-primary">Go to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock body %}

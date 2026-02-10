@@ -15,3 +15,5 @@ django-environ
 djangorestframework
 djangorestframework-simplejwt
 django-filter
+
+gunicorn
