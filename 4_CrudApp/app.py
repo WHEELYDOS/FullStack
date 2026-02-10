@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 
@@ -72,5 +73,7 @@ def about():
     return render_template("about.html")
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))  # Render default is 10000
+    app.run(host="0.0.0.0", port=port)
