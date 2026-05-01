@@ -1,0 +1,108 @@
+{% extends 'blogapp/base.html' %}
+
+{% block title %}Create Account — Inkwell{% endblock %}
+
+{% block extra_styles %}
+<style>
+  .auth-page {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 80%, rgba(200,146,42,0.06) 0%, transparent 60%),
+      var(--paper);
+  }
+  .auth-card {
+    width: 100%;
+    max-width: 480px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+  .auth-header { text-align: center; margin-bottom: 2.5rem; }
+  .auth-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem;
+    font-size: 1.4rem;
+    color: var(--ink);
+  }
+  .auth-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+  .auth-header p { color: var(--muted); font-size: 0.9rem; }
+  .btn-block { width: 100%; display: block; text-align: center; padding: 0.85rem; font-size: 0.9rem; }
+  .auth-footer { text-align: center; margin-top: 1.5rem; font-size: 0.88rem; color: var(--muted); }
+  .auth-footer a { color: var(--gold); text-decoration: none; font-weight: 500; }
+  .auth-footer a:hover { text-decoration: underline; }
+  .password-hints { font-size: 0.76rem; color: var(--muted); margin-top: 0.4rem; line-height: 1.6; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-header">
+      <div class="auth-icon">✦</div>
+      <h1>Join Inkwell</h1>
+      <p>Create your account and start writing today</p>
+    </div>
+
+    <form method="post">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="id_username">Username</label>
+        <input type="text" name="username" id="id_username" maxlength="150" autocomplete="username" autofocus placeholder="Choose a username">
+        {% if form.username.errors %}
+          <ul class="errorlist">{% for e in form.username.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+        {% endif %}
+        <span class="helptext">Letters, digits and @/./+/-/_ only.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="id_email">Email Address</label>
+        <input type="email" name="email" id="id_email" autocomplete="email" placeholder="your@email.com">
+        {% if form.email.errors %}
+          <ul class="errorlist">{% for e in form.email.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+        {% endif %}
+      </div>
+
+      <div class="form-group">
+        <label for="id_password1">Password</label>
+        <input type="password" name="password1" id="id_password1" autocomplete="new-password" placeholder="Create a strong password">
+        {% if form.password1.errors %}
+          <ul class="errorlist">{% for e in form.password1.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+        {% endif %}
+        <span class="password-hints">Min. 8 characters · Not too common · Not entirely numeric</span>
+      </div>
+
+      <div class="form-group">
+        <label for="id_password2">Confirm Password</label>
+        <input type="password" name="password2" id="id_password2" autocomplete="new-password" placeholder="Repeat your password">
+        {% if form.password2.errors %}
+          <ul class="errorlist">{% for e in form.password2.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+        {% endif %}
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+    </form>
+
+    <div class="auth-footer">
+      Already have an account? <a href="{% url 'login' %}">Sign in</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,164 @@
+{% extends 'blogapp/base.html' %}
+
+{% block title %}{{ post.title }} — Inkwell{% endblock %}
+
+{% block extra_styles %}
+<style>
+  .detail-hero {
+    background: var(--ink);
+    padding: 4rem 2rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .detail-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(200,146,42,0.1) 0%, transparent 65%);
+  }
+  .detail-hero-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .detail-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .detail-breadcrumb a { color: var(--gold); text-decoration: none; }
+  .detail-breadcrumb a:hover { text-decoration: underline; }
+
+  .detail-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--paper);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .detail-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta-author {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .meta-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .meta-author-name { color: var(--paper); font-size: 0.9rem; font-weight: 500; }
+  .meta-sep { color: #3a3128; }
+  .meta-date { color: var(--muted); font-size: 0.85rem; }
+
+  /* ── ARTICLE BODY ── */
+  .article-wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+  }
+
+  .article-cover {
+    width: 100%;
+    max-height: 460px;
+    object-fit: cover;
+    border-radius: 0 0 6px 6px;
+    display: block;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    margin-bottom: -2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .article-body {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 3rem 3rem 2.5rem;
+    margin-top: 3rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+    line-height: 1.85;
+    font-size: 1.05rem;
+    color: #2d2520;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .article-actions {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .article-actions a { font-size: 0.85rem; }
+
+  .share-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="detail-hero">
+  <div class="detail-hero-inner">
+    <div class="detail-breadcrumb">
+      <a href="{% url 'home' %}">← All Stories</a>
+    </div>
+    <h1 class="detail-title">{{ post.title }}</h1>
+    <div class="detail-meta">
+      <div class="meta-author">
+        <div class="meta-avatar">{{ post.author.username|first|upper }}</div>
+        <span class="meta-author-name">{{ post.author.username }}</span>
+      </div>
+      <span class="meta-sep">·</span>
+      <span class="meta-date">{{ post.created_at|date:"F j, Y" }}</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-date">{{ post.created_at|date:"g:i A" }} UTC</span>
+    </div>
+  </div>
+</div>
+
+{% if post.image %}
+  <div style="max-width:780px;margin:0 auto;padding:0 2rem;">
+    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="article-cover">
+  </div>
+{% endif %}
+
+<div class="article-wrap">
+  <div class="article-body">{{ post.content }}</div>
+
+  <div class="article-actions">
+    <a href="{% url 'home' %}" class="btn btn-outline">← Back to Stories</a>
+    {% if user.is_authenticated and user == post.author or user.is_superuser %}
+      <span class="share-label">Your post</span>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

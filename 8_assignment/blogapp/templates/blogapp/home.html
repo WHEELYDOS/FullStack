@@ -1,0 +1,290 @@
+{% extends 'blogapp/base.html' %}
+
+{% block title %}Inkwell — Stories Worth Reading{% endblock %}
+
+{% block extra_styles %}
+<style>
+  /* ── HERO ── */
+  .hero {
+    background: var(--ink);
+    padding: 5rem 2.5rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,146,42,0.18) 0%, transparent 70%),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.02) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.02) 40px);
+  }
+  .hero-inner { position: relative; max-width: 720px; margin: 0 auto; }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(200,146,42,0.4);
+    padding: 0.3rem 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    color: var(--paper);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero p {
+    color: #9e9488;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  /* ── SECTION ── */
+  .posts-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .section-label h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--ink);
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── GRID ── */
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 2rem;
+  }
+
+  /* ── CARD ── */
+  .post-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s;
+    animation: fadeUp 0.5s ease both;
+  }
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-img-wrap {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--cream);
+    position: relative;
+  }
+  .card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+  .post-card:hover .card-img-wrap img { transform: scale(1.04); }
+
+  .card-no-img {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--cream) 0%, #e8ddd0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--border);
+  }
+
+  .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .card-author-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .card-author-name { font-size: 0.8rem; font-weight: 500; color: var(--muted); }
+  .card-date { font-size: 0.75rem; color: #b0a598; margin-left: auto; }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: 0.7rem;
+    text-decoration: none;
+    display: block;
+  }
+  .card-title:hover { color: var(--gold); }
+
+  .card-excerpt {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 1.2rem;
+  }
+
+  .card-footer {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .card-read-more {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: gap 0.2s;
+  }
+  .card-read-more:hover { gap: 0.6rem; }
+
+  /* ── EMPTY STATE ── */
+  .empty-state {
+    text-align: center;
+    padding: 5rem 2rem;
+    color: var(--muted);
+  }
+  .empty-state .empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.4;
+  }
+  .empty-state h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .empty-state p { margin-bottom: 1.5rem; font-size: 0.95rem; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% if not user.is_authenticated %}
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">✦ Welcome to Inkwell</div>
+    <h1>Where <em>Ideas</em><br>Find Their Voice</h1>
+    <p>A refined space for writers and readers. Share your stories, discover new perspectives, and build your writing community.</p>
+    <div class="hero-actions">
+      <a href="{% url 'signup' %}" class="btn btn-primary">Start Writing</a>
+      <a href="{% url 'login' %}" class="btn btn-outline">Sign In</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="posts-section">
+  <div class="section-label">
+    <h2>
+      {% if user.is_authenticated and not user.is_superuser %}
+        Your Stories
+      {% else %}
+        Latest Stories
+      {% endif %}
+    </h2>
+  </div>
+
+  {% if posts %}
+    <div class="posts-grid">
+      {% for post in posts %}
+      <article class="post-card" style="animation-delay: {{ forloop.counter0 }}00ms">
+        {% if post.image %}
+          <div class="card-img-wrap">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+          </div>
+        {% else %}
+          <div class="card-no-img">✒</div>
+        {% endif %}
+
+        <div class="card-body">
+          <div class="card-meta">
+            <div class="card-author-badge">{{ post.author.username|first|upper }}</div>
+            <span class="card-author-name">{{ post.author.username }}</span>
+            <span class="card-date">{{ post.created_at|date:"M j, Y" }}</span>
+          </div>
+
+          <a href="{% url 'post_detail' post.id %}" class="card-title">{{ post.title }}</a>
+          <p class="card-excerpt">{{ post.content|truncatewords:28 }}</p>
+
+          <div class="card-footer">
+            <a href="{% url 'post_detail' post.id %}" class="card-read-more">Read more →</a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+  {% else %}
+    <div class="empty-state">
+      <div class="empty-icon">✒</div>
+      <h3>No stories yet</h3>
+      {% if user.is_authenticated %}
+        <p>Your writing journey begins with a single post.</p>
+        <a href="{% url 'create_post' %}" class="btn btn-primary">Write your first post</a>
+      {% else %}
+        <p>Be the first to share your story with the world.</p>
+        <a href="{% url 'signup' %}" class="btn btn-primary">Get started</a>
+      {% endif %}
+    </div>
+  {% endif %}
+</section>
+
+{% endblock %}

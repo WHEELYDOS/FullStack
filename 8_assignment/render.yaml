@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: inkwell-blog
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn blogproject.wsgi:application"
+    rootDir: "."
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.10.13"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"
+      - key: PERSISTENT_DISK
+        value: "/data"
+    disk:
+      name: sqlite-data
+      mountPath: /data
+      sizeGB: 1

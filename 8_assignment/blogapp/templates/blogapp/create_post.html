@@ -1,0 +1,114 @@
+{% extends 'blogapp/base.html' %}
+
+{% block title %}Write a Post — Inkwell{% endblock %}
+
+{% block extra_styles %}
+<style>
+  .editor-page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+  .editor-header { margin-bottom: 2.5rem; }
+  .editor-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+  .editor-header p { color: var(--muted); font-size: 0.9rem; }
+
+  .editor-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+  }
+
+  .form-group input[type="text"] { font-size: 1.1rem; }
+  .form-group textarea { min-height: 280px; line-height: 1.8; }
+
+  .upload-zone {
+    border: 2px dashed var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+  }
+  .upload-zone:hover { border-color: var(--gold); background: rgba(200,146,42,0.03); }
+  .upload-zone input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+  .upload-icon { font-size: 2rem; margin-bottom: 0.5rem; opacity: 0.5; }
+  .upload-text { font-size: 0.85rem; color: var(--muted); }
+  .upload-text strong { color: var(--gold); }
+
+  .editor-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="editor-page">
+  <div class="editor-header">
+    <h1>Write a Story</h1>
+    <p>Share your thoughts, ideas, and experiences with the world.</p>
+  </div>
+
+  <div class="editor-card">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="id_title">Post Title</label>
+        <input type="text" name="title" id="id_title" maxlength="200" placeholder="Give your story a compelling title…" value="{{ form.title.value|default:'' }}">
+        {% if form.title.errors %}
+          <ul class="errorlist">{% for e in form.title.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+        {% endif %}
+      </div>
+
+      <div class="form-group">
+        <label for="id_content">Content</label>
+        <textarea name="content" id="id_content" placeholder="Tell your story…">{{ form.content.value|default:'' }}</textarea>
+        {% if form.content.errors %}
+          <ul class="errorlist">{% for e in form.content.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+        {% endif %}
+      </div>
+
+      <div class="form-group">
+        <label>Cover Image <span style="color:var(--muted);font-weight:300;">(optional)</span></label>
+        <div class="upload-zone">
+          <input type="file" name="image" id="id_image" accept="image/*">
+          <div class="upload-icon">🖼</div>
+          <div class="upload-text">
+            <strong>Click to upload</strong> or drag &amp; drop<br>
+            JPG, PNG, GIF up to 10MB
+          </div>
+        </div>
+        {% if form.image.errors %}
+          <ul class="errorlist">{% for e in form.image.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+        {% endif %}
+      </div>
+
+      <div class="editor-actions">
+        <a href="{% url 'home' %}" class="btn btn-outline">Cancel</a>
+        <button type="submit" class="btn btn-primary">Publish Post →</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
