@@ -5,49 +5,45 @@
 {% block extra_styles %}
 <style>
   .auth-page {
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 3rem 1.5rem;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 80%, rgba(200,146,42,0.06) 0%, transparent 60%),
-      var(--paper);
+    background: transparent;
   }
   .auth-card {
     width: 100%;
     max-width: 480px;
-    background: var(--card-bg);
+    background: #ffffff;
     border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 3rem 2.5rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    padding: 3.5rem 2.5rem;
   }
   .auth-header { text-align: center; margin-bottom: 2.5rem; }
   .auth-icon {
-    width: 52px;
-    height: 52px;
-    background: var(--gold);
+    width: 48px;
+    height: 48px;
+    background: var(--text);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.2rem;
-    font-size: 1.4rem;
-    color: var(--ink);
+    font-size: 1.2rem;
+    color: var(--bg);
   }
   .auth-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.9rem;
-    color: var(--ink);
-    margin-bottom: 0.3rem;
+    font-size: 2rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
   }
-  .auth-header p { color: var(--muted); font-size: 0.9rem; }
-  .btn-block { width: 100%; display: block; text-align: center; padding: 0.85rem; font-size: 0.9rem; }
-  .auth-footer { text-align: center; margin-top: 1.5rem; font-size: 0.88rem; color: var(--muted); }
-  .auth-footer a { color: var(--gold); text-decoration: none; font-weight: 500; }
-  .auth-footer a:hover { text-decoration: underline; }
-  .password-hints { font-size: 0.76rem; color: var(--muted); margin-top: 0.4rem; line-height: 1.6; }
+  .auth-header p { color: var(--muted); font-size: 0.95rem; }
+  .btn-block { width: 100%; display: block; text-align: center; padding: 0.9rem; font-size: 0.95rem; }
+  .auth-footer { text-align: center; margin-top: 1.5rem; font-size: 0.95rem; color: var(--muted); }
+  .auth-footer a { color: var(--text); text-decoration: none; font-weight: 500; opacity: 1; }
+  .auth-footer a:hover { color: var(--accent); }
+  .password-hints { font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; line-height: 1.6; }
 </style>
 {% endblock %}
 

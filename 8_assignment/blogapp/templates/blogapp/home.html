@@ -6,47 +6,41 @@
 <style>
   /* ── HERO ── */
   .hero {
-    background: var(--ink);
-    padding: 5rem 2.5rem 4rem;
+    background: transparent;
+    padding: 8rem 2.5rem 6rem;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,146,42,0.18) 0%, transparent 70%),
-      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.02) 40px),
-      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.02) 40px);
-  }
-  .hero-inner { position: relative; max-width: 720px; margin: 0 auto; }
+  .hero-inner { position: relative; max-width: 680px; margin: 0 auto; }
   .hero-tag {
     display: inline-block;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(200,146,42,0.4);
-    padding: 0.3rem 0.9rem;
-    border-radius: 2px;
+    color: var(--accent);
     margin-bottom: 1.5rem;
+    font-weight: 600;
   }
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 6vw, 4.5rem);
-    color: var(--paper);
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    color: var(--text);
     line-height: 1.1;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
   }
-  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero h1 em { color: var(--accent); font-style: italic; font-weight: 400; }
   .hero p {
-    color: #9e9488;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    max-width: 520px;
+    color: var(--muted);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 540px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -56,162 +50,165 @@
   .posts-section {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
   }
   .section-label {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
     margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
   }
   .section-label h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    color: var(--ink);
+    font-size: 2rem;
+    color: var(--text);
+    font-weight: 500;
   }
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
+  .view-all {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
   }
+  .view-all:hover { text-decoration: underline; }
 
   /* ── GRID ── */
   .posts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2.5rem;
   }
 
   /* ── CARD ── */
   .post-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
+    background: var(--surface);
+    border: none;
+    border-radius: 16px;
+    padding: 2.5rem 2rem 2rem;
     display: flex;
     flex-direction: column;
-    transition: transform 0.25s, box-shadow 0.25s;
-    animation: fadeUp 0.5s ease both;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
   }
   .post-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
   }
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
   .card-img-wrap {
-    width: 100%;
-    height: 200px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
     overflow: hidden;
-    background: var(--cream);
-    position: relative;
+    background: var(--bg);
+    flex-shrink: 0;
   }
   .card-img-wrap img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s;
   }
-  .post-card:hover .card-img-wrap img { transform: scale(1.04); }
-
   .card-no-img {
     width: 100%;
-    height: 200px;
-    background: linear-gradient(135deg, var(--cream) 0%, #e8ddd0 100%);
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: var(--border);
+    font-size: 1.5rem;
+    color: var(--muted);
+    background: #f4f4f4;
   }
 
-  .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-
-  .card-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-  }
-  .card-author-badge {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--gold);
-    color: var(--ink);
-    font-size: 0.7rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .card-badge {
+    display: inline-block;
+    padding: 0.35rem 1.2rem;
+    background: #F8F4F0;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: var(--accent);
     text-transform: uppercase;
-    flex-shrink: 0;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    font-weight: 500;
   }
-  .card-author-name { font-size: 0.8rem; font-weight: 500; color: var(--muted); }
-  .card-date { font-size: 0.75rem; color: #b0a598; margin-left: auto; }
 
   .card-title {
     font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    line-height: 1.35;
-    color: var(--ink);
-    margin-bottom: 0.7rem;
-    text-decoration: none;
-    display: block;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    line-height: 1.3;
   }
-  .card-title:hover { color: var(--gold); }
 
   .card-excerpt {
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     color: var(--muted);
-    line-height: 1.65;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
     flex: 1;
-    margin-bottom: 1.2rem;
   }
 
   .card-footer {
-    border-top: 1px solid var(--border);
-    padding-top: 1rem;
-    display: flex;
-    justify-content: flex-end;
-  }
-  .card-read-more {
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--gold);
-    text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 0.3rem;
-    transition: gap 0.2s;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding-top: 0;
+    border-top: none;
   }
-  .card-read-more:hover { gap: 0.6rem; }
+  .card-author-badge {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--text);
+    color: var(--surface);
+    font-size: 0.65rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+  .card-author-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  .card-author-name { font-weight: 500; color: var(--muted); }
+  .card-date { color: var(--muted); }
 
   /* ── EMPTY STATE ── */
   .empty-state {
     text-align: center;
-    padding: 5rem 2rem;
+    padding: 6rem 2rem;
     color: var(--muted);
   }
   .empty-state .empty-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    opacity: 0.4;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--muted);
   }
   .empty-state h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    color: var(--text);
+    margin-bottom: 0.75rem;
   }
-  .empty-state p { margin-bottom: 1.5rem; font-size: 0.95rem; }
+  .empty-state p { margin-bottom: 2rem; font-size: 1rem; }
 </style>
 {% endblock %}
 
@@ -220,7 +217,7 @@
 {% if not user.is_authenticated %}
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-tag">✦ Welcome to Inkwell</div>
+    <div class="hero-tag">• WELCOME TO INKWELL</div>
     <h1>Where <em>Ideas</em><br>Find Their Voice</h1>
     <p>A refined space for writers and readers. Share your stories, discover new perspectives, and build your writing community.</p>
     <div class="hero-actions">
@@ -237,38 +234,38 @@
       {% if user.is_authenticated and not user.is_superuser %}
         Your Stories
       {% else %}
-        Latest Stories
+        Latest Posts
       {% endif %}
     </h2>
+    <a href="#" class="view-all">View all posts →</a>
   </div>
 
   {% if posts %}
     <div class="posts-grid">
       {% for post in posts %}
-      <article class="post-card" style="animation-delay: {{ forloop.counter0 }}00ms">
-        {% if post.image %}
-          <div class="card-img-wrap">
+      <a href="{% url 'post_detail' post.id %}" class="post-card" style="animation-delay: {{ forloop.counter0 }}00ms">
+        <div class="card-img-wrap">
+          {% if post.image %}
             <img src="{{ post.image.url }}" alt="{{ post.title }}">
-          </div>
-        {% else %}
-          <div class="card-no-img">✒</div>
-        {% endif %}
+          {% else %}
+            <div class="card-no-img">✒</div>
+          {% endif %}
+        </div>
 
-        <div class="card-body">
-          <div class="card-meta">
-            <div class="card-author-badge">{{ post.author.username|first|upper }}</div>
+        <div class="card-badge">Writing</div>
+
+        <h3 class="card-title">{{ post.title }}</h3>
+        <p class="card-excerpt">{{ post.content|truncatewords:20 }}</p>
+
+        <div class="card-footer">
+          <div class="card-author-badge">{{ post.author.username|first|upper }}</div>
+          <div class="card-author-info">
             <span class="card-author-name">{{ post.author.username }}</span>
+            <span>&bull;</span>
             <span class="card-date">{{ post.created_at|date:"M j, Y" }}</span>
           </div>
-
-          <a href="{% url 'post_detail' post.id %}" class="card-title">{{ post.title }}</a>
-          <p class="card-excerpt">{{ post.content|truncatewords:28 }}</p>
-
-          <div class="card-footer">
-            <a href="{% url 'post_detail' post.id %}" class="card-read-more">Read more →</a>
-          </div>
         </div>
-      </article>
+      </a>
       {% endfor %}
     </div>
 

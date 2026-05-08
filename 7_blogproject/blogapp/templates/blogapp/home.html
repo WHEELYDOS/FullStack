@@ -1,0 +1,13 @@
+{% if user.is_authenticated %}
+    <a href="{%url 'create_post' }">Create New post </a>
+    <form methord="post" action = "{%url 'logout' }">
+        <button type = "submit">Logout</button>
+{% endif %}
+{% for  post in posts %}
+    {{post.title}}
+    {{post.content | truncatewords:20}}
+{% if post.image %}
+    <img src = "{{post.image.url}}">
+{% endif %}
+By{{post.author.username}} at-{{post.created_at}}
+{% endfor %}

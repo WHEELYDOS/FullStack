@@ -1,0 +1,10 @@
+<h1>{{ post.title }}</h1>
+
+{% if post.image %}
+<img src="{{ post.image.url }}" alt="post image" style="max-width: 500px;">
+{% endif %}
+
+<p>{{ post.content }}</p>
+<p>By {{ post.author.username }} at {{ post.created_at }}</p>
+
+<p><a href="{% url 'home' %}">Back to Home</a></p>
