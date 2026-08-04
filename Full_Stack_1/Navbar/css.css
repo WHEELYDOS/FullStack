@@ -1,0 +1,19 @@
+.nav_sec{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(128, 128, 128, 0.18);
+    padding: 30px;
+    border-radius: 40px;
+    border: 2px solid black;
+    width: 800rem;
+    box-shadow: 3px 7px 3px black;
+    margin: 1% 1% 0 1%;
+}
+.right_sec{
+    display: flex;
+    align-items: end;
+}
+h2{
+    padding-right: 20px;
+}
