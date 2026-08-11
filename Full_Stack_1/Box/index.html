@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body {
+            height: 200rem;
+            background-color: black;
+            position: relative;
+        }
+
+        .container {
+            position: sticky;
+        }
+
+        .box {
+            height: 50rem;
+            border-radius: 30px;
+            margin: auto;
+            top: 1%;
+        }
+
+        img {
+            margin: auto;
+            display: flex;
+            border-radius: 30px;
+            
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: black;
+        }
+
+        @font-face {
+            font-family: 'myFont';
+            /* Use a relative path with forward slashes */
+            src: url('./fonts/Matcha Mint.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        h1 {
+            margin: 1%;
+            ;
+            font-family: myFont;
+            font-size: 50px;
+        }
+
+        .center {
+            text-align: center;
+
+            color: rgb(208, 208, 208);
+
+        }
+
+        #box1 {
+            position: sticky;
+
+        }
+
+        #box2 {
+            position: sticky;
+
+        }
+
+        #box3 {
+            position: sticky;
+
+        }
+
+        #box4 {
+            position: sticky;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <h1 class="center">THIS PAGE IS CREATED BY </h1>
+        <h1 class="center" style="font-size: 150px;">HARSH</h1>
+    </div>
+    <div class="comtainer">
+        <div class="box" id="box1">
+            <img src="\Box\images\172859-red_dead_redemption_2-red_dead_redemption-rockstar_games-action_adventure_game-sadie_adler-1920x1080.jpg"
+                alt="1">
+        </div>
+        <div class="box" id="box2">
+            <img src="\Box\images\154320-red_dead_redemption-red_dead_redemption_2-john_marston-arthur_morgan-character-1920x1080.jpg"
+                alt="1">
+        </div>
+        <div class="box" id="box3">
+            <img src="\Box\images\170825-red_dead_redemption_2-red_dead_redemption-arthur_morgan-desperados_iii-android-1920x1080.jpg"
+                alt="1">
+        </div>
+        <div class="box" id="box4">
+            <img src="\Box\images\173157-red_dead_redemption_2-mansion-mission-darkness-science-1920x1080.jpg" alt="1">
+        </div>
+    </div>
+
+
+</body>
+
+</html>
