@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container1 {
+            width: 200px;
+            height: 200px;
+            background-image: linear-gradient(148deg, lightblue, black);
+        }
+
+        .container2 {
+            width: 200px;
+            height: 200px;
+            background: conic-gradient(red 0deg, green 90deg, blue 180deg, yellow 360deg);
+        }
+
+        .loading-parent {
+            width: 98vw;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .outer-loading {
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 212px;
+            height: 212px;
+            background-color: coral;
+        }
+
+        .loading {
+            width: 200px;
+            height: 200px;
+            background: conic-gradient(lightblue 50deg, cyan 90deg, blue 180deg, black 270deg);
+            border-radius: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle {
+            width: 150px;
+            align-items: center;
+            height: 150px;
+            border-radius: 200px;
+            background-color: #001111;
+        }
+
+        #outerbox {
+            height: 500px;
+            width: 500px;
+            background-image: conic-gradient(red, blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+        }
+
+        #innerbox {
+            border-radius: 30px;
+            height: 400px;
+            width: 400px;
+            background-color: #001111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            background: linear-gradient(rgb(255, 0, 0),rgb(85, 0, 130));
+            color: transparent;
+            background-clip: text;
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container1"></div>
+    <div class="container2"></div>
+    <div class="loading-parent">
+        <div class="outer-loading">
+            <div class="loading">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+    <div id="outerbox">
+        <div id="innerbox">
+            <h1 > BOX </h1>
+        </div>
+        
+    </div>
+
+    
+</body>
+
+</html>
