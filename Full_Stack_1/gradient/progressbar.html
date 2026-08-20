@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(245, 245, 220, 0.761);
+        }
+
+        .container1 {
+            width: 200px;
+            height: 200px;
+            background-image: linear-gradient(148deg, lightblue, black);
+        }
+
+        .container2 {
+            width: 200px;
+            height: 200px;
+            background: conic-gradient(red 0deg, green 90deg, blue 180deg, yellow 360deg);
+        }
+
+        .loading-parent {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .outer-loading {
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            height: 500px;
+            border-radius: 50px;
+            background-color: rgba(7, 7, 7, 0.876);
+            box-shadow: 10px 10px 0px 5px rgb(4, 111, 212);
+        }
+
+        .loading {
+            width: 400px;
+            height: 400px;
+            background: conic-gradient(lightblue 50deg, cyan 90deg, blue 234deg, black 93deg);
+            border-radius: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle {
+            width: 300px;
+            align-items: center;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 200px;
+            background-color: #060606;
+        }
+
+        #outerbox {
+            height: 500px;
+            width: 500px;
+            background-image: conic-gradient(red, blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+        }
+
+        #innerbox {
+            border-radius: 30px;
+            height: 400px;
+            width: 400px;
+            background-color: hsl(180, 100%, 3%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading-parent">
+        <div class="outer-loading">
+            <div class="loading">
+                <div class="circle">
+                    <h1 style="text-align: center; display: flex;
+            justify-content: center;
+            align-items: center;color: rgba(240, 248, 255, 0.777);font-size:120px;"> 67% </h1>
+                    <p style="
+                     display: flex;
+            justify-content: center;
+            align-items: center; display: flex;
+            justify-content: center;
+            align-items: center;color:grey;text-align: center;">power </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
