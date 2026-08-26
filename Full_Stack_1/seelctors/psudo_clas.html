@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: grey;
+        }
+
+        button {
+            font-size: 100px;
+            color: white;
+            background-color: black;
+            border-radius: 20px;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transition: 0.5s;
+            box-shadow: 10px 10px 1px red;
+        }
+
+        button:active {
+            transition: 0.1s;
+            background-color: rgb(235, 233, 233);
+            color: black;
+        }
+
+        a:link {
+            color: black;
+            font-size: 100px;
+        }
+        div{
+            margin: 20px;
+        }
+
+        a:visited {
+            color: rgb(88, 13, 88);
+        }
+        label{
+            font-size: 40px;
+        }
+        label:nth-child(even){
+            background-color: aliceblue;
+        }
+        input{
+            margin: 10px;
+            height: 50px;
+            width: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        input:checked{
+            transition: .2s;
+            accent-color: black;
+            box-shadow: 2px 2px 4px red;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button>
+            Daba Do Mujhe
+        </button>
+    </div>
+    <div>
+        <a href="https://www.google.com/">LINK</a>
+    </div>
+    <div >
+        <input type="checkbox" ><label>Check Krien 1</label><br>
+        <input type="checkbox"><label>Check Krien 2</label><br>
+        <input type="checkbox"><label>Check Krien 3</label><br>
+        <input type="checkbox"><label>Check Krien 4</label><br>
+
+    </div>
+</body>
+
+</html>
