@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        body{
+        body {
             background-color: rgb(217, 216, 216);
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
         }
+
         input {
             margin: 10px;
             font-size: 30px;
@@ -56,6 +57,14 @@
         input:invalid {
             color: red;
         }
+
+        input:focus {
+            box-shadow: 5px 5px 5px rgba(8, 19, 224, 0.086);
+
+        }
+        input:read-only{
+            background-color: rgba(128, 128, 128, 0.366);
+        }
     </style>
 </head>
 
@@ -64,7 +73,15 @@
     <form action="POST">
 
         <table>
+            <tr>
+                <td>
+                    <label for="college">College:</label>
+                </td>
 
+                <td>
+                    <input type="text" id="college" value="GLA University" readonly>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <label for="firstname">First Name:</label>
@@ -96,7 +113,7 @@
                     <input type="text" id="lastname" required>
                 </td>
             </tr>
-            
+
             <tr>
                 <td>
                     <label for="Email">Email:</label>
