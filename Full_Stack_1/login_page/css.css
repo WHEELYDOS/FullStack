@@ -6,13 +6,44 @@
     align-items: center;
     justify-content: center;
     background-color: rgba(128, 128, 128, 0.18);
-    padding: 30px;
+    padding: 60px;
     border-radius: 20px;
     border: 2px solid black;
     box-shadow: 3px 7px 3px black;
 }
 h1{
+    font-family: comico;
     font-size: 50px;
     margin-top: -100px;
     margin-bottom: 100px;
+}
+
+ label{font-size: 25px;
+font-weight: bold;
+}
+input{
+    border-radius: 30px;
+    font-size: 20px;
+}
+button{
+    size: 50px;
+    background-color: black;
+    font-size: 40px;
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 5%;
+    transition: 0.2s;
+    margin-top: 60px;
+    font-family: comico;
+    font-weight: 10;
+}
+button:hover{
+    background-color: whitesmoke;
+    color: black;
+    transition: 0.5s;
+
+}
+@font-face {
+    font-family: 'comico';
+    src: url(./fonts/Matcha\ Mint.otf);
 }
