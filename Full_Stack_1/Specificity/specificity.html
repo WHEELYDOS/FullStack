@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @layer special, base;
+
+        @layer base {
+            p {
+                font-size: 30px;
+                color: red;
+            }
+        }
+
+        @layer special {
+            p {
+                color: blue;
+            }
+        }
+
+        div {
+            background-color: wheat;
+            color: pink !important;
+            height: 200px;
+            width: 200px;
+        }
+
+        @layer components {
+            div {
+                background-color: yellow;
+                border: 1rem dashed red;
+                color: orange !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        @layer components.narrow {
+            div {
+                background-color: skyblue;
+                border: 1rem dashed blue;
+                color: purple !important;
+                border-radius: 50%;
+            }
+        }
+
+        @layer components.wide {
+            div {
+                background-color: limegreen;
+                border: 1rem dashed green;
+                color: seagreen !important;
+                border-radius: 20%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <p>Specificity</p>
+    <div>
+        <h1>WHEAT</h1>
+    </div>
+
+
+</body>
+
+</html>
