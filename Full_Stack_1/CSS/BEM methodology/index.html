@@ -1,0 +1,61 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Card</title> 
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            width: 300px;
+            padding: 25px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .card_heading {
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .card_text {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head> 
+
+<body> 
+    <div class="card"> 
+        <h1 class="card_heading">Welcome</h1> 
+        <p class="card_text">This is a simple card with some basic CSS styling.</p> 
+        <button class="button">Learn More</button> 
+    </div> 
+</body> 
+</html>
