@@ -20,7 +20,7 @@
     --font-weight-bold: 700;
     --font-weight-black: 900;
     --radius-2xl: 1rem;
-    --animate-bounce: bounce 1s infinite;
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -186,23 +186,8 @@
   .h-\[200px\] {
     height: 200px;
   }
-  .h-full {
-    height: 100%;
-  }
-  .h-screen {
-    height: 100vh;
-  }
   .w-3 {
     width: calc(var(--spacing) * 3);
-  }
-  .w-full {
-    width: 100%;
-  }
-  .animate-bounce {
-    animation: var(--animate-bounce);
-  }
-  .flex-col {
-    flex-direction: column;
   }
   .content-center {
     align-content: center;
@@ -213,17 +198,8 @@
   .justify-center {
     justify-content: center;
   }
-  .rounded-2xl {
-    border-radius: var(--radius-2xl);
-  }
   .bg-emerald-100 {
     background-color: var(--color-emerald-100);
-  }
-  .bg-fuchsia-950 {
-    background-color: var(--color-fuchsia-950);
-  }
-  .bg-teal-700 {
-    background-color: var(--color-teal-700);
   }
   .pr-\[10px\] {
     padding-right: 10px;
@@ -257,11 +233,39 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  .shadow-xl\/90 {
-    --tw-shadow-alpha: 90%;
-    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, oklab(from rgb(0 0 0 / 0.1) l a b / 90%)), 0 8px 10px -6px var(--tw-shadow-color, oklab(from rgb(0 0 0 / 0.1) l a b / 90%));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
+}
+.bodyy {
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  background-color: var(--color-teal-700);
+}
+.outter_box {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(infinity * 1px);
+  background-color: var(--color-fuchsia-950);
+  --tw-shadow-alpha: 100%;
+  --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, oklab(from rgb(0 0 0 / 0.1) l a b / 100%)), 0 8px 10px -6px var(--tw-shadow-color, oklab(from rgb(0 0 0 / 0.1) l a b / 100%));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-2xl);
+  background-color: var(--color-teal-700);
+  --tw-shadow-alpha: 90%;
+  --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, oklab(from rgb(0 0 0 / 0.1) l a b / 90%)), 0 8px 10px -6px var(--tw-shadow-color, oklab(from rgb(0 0 0 / 0.1) l a b / 90%));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.buttons:hover {
+  animation: var(--animate-pulse);
+  transition-delay: 75ms;
 }
 @property --tw-font-weight {
   syntax: "*";
@@ -332,14 +336,9 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
+@keyframes pulse {
   50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    opacity: 0.5;
   }
 }
 @layer properties {
