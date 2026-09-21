@@ -7,10 +7,6 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E.svg?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-A structured, full-stack software engineering repository containing frontend UI architectures, backend web services, relational database integrations, and end-to-end applications built with modern web technologies.
-
----
-
 ## Repository Architecture
 
 ```text
