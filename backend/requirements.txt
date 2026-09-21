@@ -1,0 +1,20 @@
+# Flask Ecosystem
+flask
+flask-wtf
+flask-login
+flask-bcrypt
+flask-restful
+flask-jwt-extended
+flask-sqlalchemy
+flask-migrate
+sqlalchemy
+
+# Django Ecosystem
+django
+django-environ
+djangorestframework
+djangorestframework-simplejwt
+django-filter
+
+# Production Server
+gunicorn
