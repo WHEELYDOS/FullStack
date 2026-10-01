@@ -1,0 +1,17 @@
+/* Primary #0F172A
+Secondary #2563EB
+Accent #7C3AED
+Background #F8FAFC
+White #FFFFFF
+Heading #111827
+Body #475569
+Border #CBD5E1
+Success #059669  */
+.hero {
+    height: 96vh;
+    background-image: url('skirk-skirk-video-igra-video-game-zvezda-pustoty-uchenitsa-g.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}

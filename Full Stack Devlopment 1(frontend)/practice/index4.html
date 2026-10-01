@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        .gridbody {
+            padding: 20px;
+            height: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+            grid-auto-rows: 10px;
+            gap: 10px;
+            box-shadow: 5px 10px 7px 2px black;
+
+        }
+
+        .card {
+            border-radius: 7px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            padding:5px ;
+            height:auto;
+            box-shadow: 2px 2px 2px 2px rgba(128, 128, 128, 0.376);
+        }
+
+        .card-image {
+            border-radius: 7px;
+            flex: 3;
+        }
+
+        .card-content {
+            flex: 1;
+            font-size: 15px;
+        }
+        .author,.posted{
+            color: grey;
+            margin: -10px 0;
+            font-size:1wpx
+        }
+
+        #card1 {
+            grid-row: span 20;
+        }
+
+        #card2 {
+            grid-row: span 30;
+        }
+
+        #card3 {
+            grid-row: span 40;
+        }
+        
+        #card4 {
+            grid-row: span 20;
+        }
+        
+        #card5 {
+            grid-row: span 40;
+        }
+        
+        #card6 {
+            grid-row: span 30;
+        }
+
+        
+        @media(max-width:1000px){
+            .gridbody{
+                grid-template-columns: repeat(2,1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gridbody">
+        <div class="card" id="card1">
+            <div class="card-image" style="background-color: rgb(120, 192, 212);">
+
+            </div>
+            <div class="card-content">
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Vivamus commodo sodales elementum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Proin condimentum justo lectus, quis egestas
+                        tortor sagittis sed. Etiam feugiat accumsan lacus
+                        vitae viverra. </p>
+                </div>
+                <div class="author">
+                    <p>@wheelydos</p>
+                </div>
+                <div class="posted">
+                    <p>posted 7 days ago</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="card2">
+            <div class="card-image" style="background-color: rgb(207, 140, 106);">
+
+            </div>
+            <div class="card-content">
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Vivamus commodo sodales elementum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Proin condimentum justo lectus, quis egestas
+                        tortor sagittis sed. Etiam feugiat accumsan lacus
+                        vitae viverra. </p>
+                </div>
+                <div class="author">
+                    <p>@wheelydos</p>
+                </div>
+                <div class="posted">
+                    <p>posted 7 days ago</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="card3">
+            <div class="card-image" style="background-color: rgb(123, 145, 93);">
+
+            </div>
+            <div class="card-content">
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Vivamus commodo sodales elementum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Proin condimentum justo lectus, quis egestas
+                        tortor sagittis sed. Etiam feugiat accumsan lacus
+                        vitae viverra. </p>
+                </div>
+                <div class="author">
+                    <p>@wheelydos</p>
+                </div>
+                <div class="posted">
+                    <p>posted 7 days ago</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="card4">
+            <div class="card-image" style="background-color: rgb(210, 115, 251);">
+
+            </div>
+            <div class="card-content">
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Vivamus commodo sodales elementum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Proin condimentum justo lectus, quis egestas
+                        tortor sagittis sed. Etiam feugiat accumsan lacus
+                        vitae viverra. </p>
+                </div>
+                <div class="author">
+                    <p>@wheelydos</p>
+                </div>
+                <div class="posted">
+                    <p>posted 7 days ago</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="card5">
+            <div class="card-image" style="background-color: rgb(242, 212, 173);">
+
+            </div>
+            <div class="card-content">
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Vivamus commodo sodales elementum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Proin condimentum justo lectus, quis egestas
+                        tortor sagittis sed. Etiam feugiat accumsan lacus
+                        vitae viverra. </p>
+                </div>
+                <div class="author">
+                    <p>@wheelydos</p>
+                </div>
+                <div class="posted">
+                    <p>posted 7 days ago</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="card6">
+            <div class="card-image" style="background-color: rgb(221, 103, 125);">
+
+            </div>
+            <div class="card-content">
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Vivamus commodo sodales elementum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Proin condimentum justo lectus, quis egestas
+                        tortor sagittis sed. Etiam feugiat accumsan lacus
+                        vitae viverra. </p>
+                </div>
+                <div class="author">
+                    <p>@wheelydos</p>
+                </div>
+                <div class="posted">
+                    <p>posted 7 days ago</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

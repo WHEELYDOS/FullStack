@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 10;
+            padding: 10;
+        }
+
+        .heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gridbody {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-auto-rows: 10px;
+            gap: 10px;
+        }
+
+        .card {
+            margin: 10px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+
+            display: flex;
+            flex-direction: column;
+
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-image {
+            width: 100%;
+            flex: 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 35px;
+            color: white;
+        }
+
+        @media(max-width:1024px) {
+            .gridbody {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media(max-width:600px) {
+            .gridbody {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #box1 {
+            grid-row: span 30;
+        }
+
+        #box2 {
+            grid-row: span 20;
+        }
+
+        #box3 {
+            grid-row: span 30;
+        }
+
+        #box4 {
+            grid-row: span 20;
+        }
+
+        #box5 {
+            grid-row: span 30;
+        }
+
+        #box6 {
+            grid-row: span 30;
+        }
+
+        #box7 {
+            grid-row: span 20;
+        }
+    </style>
+</head>
+
+<body>
+    <div class=heading>
+        <h1>Practice 2<h1>
+    </div>
+    <div class="gridbody">
+        <div class="card" id="box1">
+            <div class="card-image" style="background-image: linear-gradient(45deg,rgba(255, 0, 0, 0.484),rgba(43, 255, 0, 0.54));">
+                
+            </div>
+            <h2>card1</h2>
+            <h6>this is the card body</h6>
+        </div>
+        <div class="card" id="box2">
+            <div class="card-image" style="background-image: linear-gradient(45deg,rgba(255, 0, 0, 0.538),rgba(43, 255, 0, 0.589));">
+
+            </div>
+            <h2>card2</h2>
+            <h6>this is the card body</h6>
+        </div>
+        <div class="card" id="box3">
+            <div class="card-image" style="background-image: linear-gradient(45deg,red,rgb(67, 149, 98));">
+
+            </div>
+            <h2>card3</h2>
+            <h6>this is the card body</h6>
+        </div>
+        <div class="card" id="box4">
+            <div class="card-image" style="background-image: linear-gradient(45deg,rgb(180, 180, 192),blue);">
+
+            </div>
+            <h2>card4</h2>
+            <h6>this is the card body</h6>
+        </div>
+        <div class="card" id="box5">
+            <div class="card-image" style="background-image: linear-gradient(45deg,rgb(180, 180, 192),blue);">
+
+            </div>
+            <h2>card5</h2>
+            <h6>this is the card body</h6>
+        </div>
+        <div class="card" id="box6">
+            <div class="card-image" style="background-image: linear-gradient(45deg,rgb(180, 180, 192),blue);">
+
+            </div>
+            <h2>card6</h2>
+            <h6>this is the card body</h6>
+        </div>
+        <div class="card" id="box7">
+            <div class="card-image" style="background-image: linear-gradient(45deg,rgb(180, 180, 192),blue);">
+
+            </div>
+            <h2>card7</h2>
+            <h6>this is the card body</h6>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

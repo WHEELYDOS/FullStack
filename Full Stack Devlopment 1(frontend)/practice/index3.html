@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TilePress - Pinterest Masonry Gallery</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            height: 70px;
+            padding: 0 30px;
+            background: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #bd081c;
+            white-space: nowrap;
+        }
+
+        .search {
+            width: 40%;
+            max-width: 500px;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 12px 18px;
+            border: none;
+            outline: none;
+            background: #eee;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .profile {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+
+
+        /* =========================
+           GALLERY
+        ========================= */
+
+        .gallery {
+            width: 100%;
+            padding: 25px;
+
+            display: grid;
+
+            /* Minimum card width = 180px */
+            grid-template-columns:
+                repeat(auto-fill, minmax(180px, 1fr));
+
+            /* Small row height allows different card heights */
+            grid-auto-rows: 8px;
+
+            gap: 16px;
+        }
+
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .card {
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+
+            display: flex;
+            flex-direction: column;
+
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-image {
+            width: 100%;
+            flex: 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 35px;
+            color: white;
+        }
+
+        .card-content {
+            padding: 12px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .card-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-top: 5px;
+        }
+
+        .avatar {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+
+        .username {
+            font-size: 12px;
+            color: #555;
+        }
+
+
+        /* =========================
+           DIFFERENT MASONRY HEIGHTS
+        ========================= */
+
+        .card:nth-child(1) {
+            grid-row: span 30;
+        }
+
+        .card:nth-child(2) {
+            grid-row: span 40;
+        }
+
+        .card:nth-child(3) {
+            grid-row: span 25;
+        }
+
+        .card:nth-child(4) {
+            grid-row: span 35;
+        }
+
+        .card:nth-child(5) {
+            grid-row: span 45;
+        }
+
+        .card:nth-child(6) {
+            grid-row: span 32;
+        }
+
+        .card:nth-child(7) {
+            grid-row: span 42;
+        }
+
+        .card:nth-child(8) {
+            grid-row: span 28;
+        }
+
+        .card:nth-child(9) {
+            grid-row: span 38;
+        }
+
+        .card:nth-child(10) {
+            grid-row: span 30;
+        }
+
+
+        /* =========================
+           COLORS
+        ========================= */
+
+        .color1 {
+            background: #e76f51;
+        }
+
+        .color2 {
+            background: #2a9d8f;
+        }
+
+        .color3 {
+            background: #e9c46a;
+        }
+
+        .color4 {
+            background: #9b8acb;
+        }
+
+        .color5 {
+            background: #52b788;
+        }
+
+        .color6 {
+            background: #457b9d;
+        }
+
+        .color7 {
+            background: #f4a261;
+        }
+
+        .color8 {
+            background: #6d597a;
+        }
+
+        .color9 {
+            background: #8ab17d;
+        }
+
+        .color10 {
+            background: #e5989b;
+        }
+
+
+        /* =========================
+           TABLET
+           700px - 1199px
+        ========================= */
+
+        @media (max-width: 1199px) {
+
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .search {
+                width: 35%;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+           Below 700px
+        ========================= */
+
+        @media (max-width: 699px) {
+
+            .navbar {
+                height: 60px;
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .search {
+                display: none;
+            }
+
+            .nav-icons {
+                gap: 12px;
+            }
+
+            .gallery {
+                padding: 12px;
+
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 8px;
+            }
+
+            .card-content {
+                padding: 8px;
+            }
+
+            .card-title {
+                font-size: 14px;
+            }
+
+            .card-description {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            TilePress
+        </div>
+
+        <div class="search">
+            <input type="text" placeholder="Search for ideas...">
+        </div>
+
+        <div class="nav-icons">
+
+            <div class="icon">🔔</div>
+
+            <div class="icon">▭</div>
+
+            <div class="profile"></div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         MASONRY GALLERY
+    ========================== -->
+
+    <main class="gallery">
+
+        <div class="card">
+            <div class="card-image color1">
+                🌅
+            </div>
+
+            <div class="card-content">
+                <div class="card-title">
+                    Beautiful Sunset
+                </div>
+
+                <div class="card-description">
+                    Amazing sunset views and beautiful landscapes.
+                </div>
+
+                <div class="author">
+                    <div class="avatar"></div>
+                    <span class="username">@alex</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-image color2">
+                🌲
+            </div>
+
+            <div class="card-content">
+                <div class="card-title">
+                    Nature
+                </div>
+
+                <div class="card-description">
+                    Explore forests, mountains and peaceful places.
+                    Nature provides endless inspiration for creative
+                    photography and design.
+                </div>
+
+                <div class="author">
+                    <div class="avatar"></div>
+                    <span class="username">@john</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-image color3">
+                ☀️
+            </div>
+
+            <div class="card-content">
+                <div class="card-title">
+                    Summer Ideas
+                </div>
+
+                <div class="card-description">
+                    Bright colors and summer inspiration.
+                </div>
+
+                <div class="author">
+                    <div class="avatar"></div>
+                    <span class="username">@emma</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-image color4">
+                🎨
+            </div>
+
+            <div class="card-content">
+                <div class="card-title">
+                    Creative Design
+                </div>
+
+                <div class="card-description">
+                    Design inspiration for your next project.
+                    Discover interesting combinations of colors,
+                    typography and layouts.
+                </div>
+
+                <div class="author">
+                    <div class="avatar"></div>
+                    <span class="username">@sarah</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-image color5">
+                🌿
+            </div>
+
+            <div class="card-content">
+                <div class="card-title">
+                    Green Life
+                </div>
+
+                <div class="card-description">
+                    Simple ideas for a calm and natural lifestyle.
+                    Plants and green spaces can transform your room.
+                </div>
+
+                <div class="author">
+                    <div class="avatar"></div>
+                    <span class="username">@mike</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-image color6">
+                🏔️
+            </div>
+
+            <div class="card-content">
+                <div class="card-title">
+                    Mountain Adventure
+                </div>
+
+                <div class="card-description">
+                    Travel and adventure inspiration.
+                </div>
+
+                <div class="author">
+                    <div class="avatar"></div>
+                    <span class="username">@sam</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-image color7">
+                🏖️
+            </div>
+
+            <div class="card-content">
+                <div class="card-title">
+                    Beach Vibes
+                </div>
+
+                <div class="card-description">
+                    Relaxing places and travel destinations.
+                    Perfect inspiration for your next vacation.
+                </div>
+
+                <div class="author">
+                    <div class="avatar"></div>
+                    <span class="username">@lisa</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-image color8">
+                🌌
+            </div>
+
+            <div class="card-content">
+                <div class="card-title">
+                    Night Sky
+                </div>
+
+                <div class="card-description">
+                    Stars, galaxies and the beauty of the night sky.
+                </div>
+
+                <div class="author">
+                    <div class="avatar"></div>
+                    <span class="username">@david</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-image color9">
+                🪴
+            </div>
+
+            <div class="card-content">
+                <div class="card-title">
+                    Home Decor
+                </div>
+
+                <div class="card-description">
+                    Minimal and modern home decoration ideas.
+                </div>
+
+                <div class="author">
+                    <div class="avatar"></div>
+                    <span class="username">@anna</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-image color10">
+                📷
+            </div>
+
+            <div class="card-content">
+                <div class="card-title">
+                    Photography
+                </div>
+
+                <div class="card-description">
+                    Photography inspiration and creative
+                    composition ideas.
+                </div>
+
+                <div class="author">
+                    <div class="avatar"></div>
+                    <span class="username">@chris</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
