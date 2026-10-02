@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            color: white;
+        }
+
+        body {
+            background-image: linear-gradient(150deg, rgb(67, 15, 15), black, black, black);
+            background-repeat: no-repeat;
+            width: auto;
+            padding: 10px;
+        }
+
+        .hero {
+            max-width: 500px;
+        }
+
+        button {
+            color: black;
+        }
+
+        .card {
+            flex: 0 0 200px;
+            height: 100px;
+            width: 200px;
+            border-radius: 5px;
+            transition: 0.5s;
+
+        }
+
+        .card:hover {
+            transition: 0.2s;
+            scale: 105%;
+        }
+
+        h4 {
+            margin-top: 75px;
+            margin-left: 5px;
+        }
+
+        .red {
+            background-image: linear-gradient(45deg, blue, pink);
+            /* background-color: rgb(159, 60, 60); */
+        }
+
+        .blue {
+            background-image: linear-gradient(45deg, rgb(7, 102, 7), rgb(202, 209, 13));
+
+        }
+
+        .purple {
+            background-image: linear-gradient(45deg, rgb(255, 0, 0), rgb(36, 161, 173));
+
+        }
+
+        .green {
+            background-image: linear-gradient(45deg, rgb(99, 11, 78), rgba(235, 28, 1, 0.604));
+
+        }
+
+        .yellow {
+            background-image: linear-gradient(45deg, rgb(51, 5, 53), rgb(247, 247, 247));
+
+        }
+
+        .h-scroll {
+            height: 130px;
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-shrink: 0;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            gap: 20px;
+            padding-left: 10px;
+
+        }
+        @media(min-width:600px)and (max-width:1023px){
+            .card{
+                width: 150px;
+                height: 100px;
+                flex: 0 0 150px;
+            }
+        }
+                @media (max-width:599px){
+                    body{padding:0px;}
+            .card{
+                width: 110px;
+                height: 100px;
+                flex: 0 0 110px ;
+            }
+            .hero{
+                font-size: small;
+            }
+            .butt{
+                max-width: 100px;
+                gap:10px;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <div>
+            <h1>Midnight Horizon</h1>
+            <p>a srtandard astronaught must choose between saving her crew or completing
+                humanities last missionbdegore the signal fades forever
+            </p>
+        </div>
+        <div class="butt">
+            <button>|> Play</button>
+            <button>(i) More info</button>
+        </div>
+    </div>
+    <div class="trending">
+        <h3>Treanding now</h3>
+        <div class="h-scroll">
+            <div class="card red">
+                <h4>In<h4>
+            </div>
+            <div class="card blue">
+                <h4>The<h4>
+            </div>
+            <div class="card yellow">
+                <h4>Night<h4>
+            </div>
+            <div class="card purple">
+                <h4>No<h4>
+            </div>
+            <div class="card green">
+                <h4>Control<h4>
+
+            </div>
+            <div class="card red">
+                <h4>In<h4>
+            </div>
+            <div class="card blue">
+                <h4>The<h4>
+            </div>
+            <div class="card yellow">
+                <h4>Night<h4>
+            </div>
+            <div class="card purple">
+                <h4>No<h4>
+            </div>
+            <div class="card green">
+                <h4>Control<h4>
+            </div>
+        </div>
+        <div class="continue">
+            <h3>Continue Watching</h3>
+            <div class="h-scroll">
+                <div class="card red">
+                    <h4>In<h4>
+                </div>
+                <div class="card blue">
+                    <h4>The<h4>
+                </div>
+                <div class="card yellow">
+                    <h4>Night<h4>
+                </div>
+                <div class="card purple">
+                    <h4>No<h4>
+                </div>
+                <div class="card green">
+                    <h4>Control<h4>
+
+                </div>
+                <div class="card red">
+                    <h4>In<h4>
+                </div>
+                <div class="card blue">
+                    <h4>The<h4>
+                </div>
+                <div class="card yellow">
+                    <h4>Night<h4>
+                </div>
+                <div class="card purple">
+                    <h4>No<h4>
+                </div>
+                <div class="card green">
+                    <h4>Control<h4>
+                </div>
+            </div>
+            <div class="action">
+                <h3>Action Movies</h3>
+                <div class="h-scroll">
+                    <div class="card red">
+                        <h4>In<h4>
+                    </div>
+                    <div class="card blue">
+                        <h4>The<h4>
+                    </div>
+                    <div class="card yellow">
+                        <h4>Night<h4>
+                    </div>
+                    <div class="card purple">
+                        <h4>No<h4>
+                    </div>
+                    <div class="card green">
+                        <h4>Control<h4>
+                    </div>
+                    <div class="card red">
+                        <h4>In<h4>
+                    </div>
+                    <div class="card blue">
+                        <h4>The<h4>
+                    </div>
+                    <div class="card yellow">
+                        <h4>Night<h4>
+                    </div>
+                    <div class="card purple">
+                        <h4>No<h4>
+                    </div>
+                    <div class="card green">
+                        <h4>Control<h4>
+                    </div>
+                </div>
+</body>
+
+</html>
