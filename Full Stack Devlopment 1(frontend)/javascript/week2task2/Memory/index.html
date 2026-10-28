@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Memory Card Match</h2>
+<p id="result">Find all 8 pairs!</p>
+
+<div id="game"></div>
+
+<script>
+    let cards = ["A","A","B","B","C","C","D","D",
+                 "E","E","F","F","G","G","H","H"];
+
+    cards.sort(() => Math.random() - 0.5);
+
+    let first = null;
+    let lock = false;
+    let matches = 0;
+
+    for (let i = 0; i < 16; i++) {
+        let btn = document.createElement("button");
+
+        btn.innerText = "?";
+        btn.style.width = "60px";
+        btn.style.height = "60px";
+        btn.style.margin = "5px";
+
+        btn.onclick = function () {
+            if (lock || btn.innerText != "?") return;
+
+            btn.innerText = cards[i];
+
+            if (first == null) {
+                first = btn;
+            } else {
+                if (first.innerText == btn.innerText) {
+                    matches++;
+                    first = null;
+
+                    if (matches == 8) {
+                        document.getElementById("result").innerText =
+                            "You won!";
+                    }
+                } else {
+                    lock = true;
+
+                    setTimeout(function () {
+                        first.innerText = "?";
+                        btn.innerText = "?";
+                        first = null;
+                        lock = false;
+                    }, 1000);
+                }
+            }
+        };
+
+        document.getElementById("game").appendChild(btn);
+
+        if ((i + 1) % 4 == 0) {
+            document.getElementById("game").appendChild(
+                document.createElement("br")
+            );
+        }
+    }
+</script>
+
+</body>
+</html>
