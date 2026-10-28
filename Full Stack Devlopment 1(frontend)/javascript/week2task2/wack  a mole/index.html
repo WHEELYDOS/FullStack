@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Whack-a-Mole</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h2>Whack-a-Mole</h2>
+
+    <p>Score: <span id="score">0</span></p>
+    <p>Time: <span id="time">30</span> seconds</p>
+
+    <table>
+        <tr>
+            <td><button id="1" onclick="hit(1)"></button></td>
+            <td><button id="2" onclick="hit(2)"></button></td>
+            <td><button id="3" onclick="hit(3)"></button></td>
+        </tr>
+        <tr>
+            <td><button id="4" onclick="hit(4)"></button></td>
+            <td><button id="5" onclick="hit(5)"></button></td>
+            <td><button id="6" onclick="hit(6)"></button></td>
+        </tr>
+        <tr>
+            <td><button id="7" onclick="hit(7)"></button></td>
+            <td><button id="8" onclick="hit(8)"></button></td>
+            <td><button id="9" onclick="hit(9)"></button></td>
+        </tr>
+    </table>
+
+    <br>
+    <button onclick="startGame()">Start Game</button>
+
+<script src="script.js"></script>
+</body>
+</html>
