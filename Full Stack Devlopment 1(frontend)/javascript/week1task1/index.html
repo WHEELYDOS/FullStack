@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Quiz Arena</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="center" style="height: 97vh;">
+
+    <div class="center" style="border: 1px solid black; width: 50%;">
+
+        <h1>JS Quiz Arena</h1>
+
+        <!-- Quiz progress -->
+        <p id="progress">Q1/5</p>
+
+        <!-- Timer -->
+        <p id="timer">Time: 30 seconds</p>
+
+        <!-- Score -->
+        <p id="score">Score: 0</p>
+
+        <!-- Question -->
+        <h2 id="question">Question will appear here</h2>
+
+        <!-- Answer options -->
+        <div id="options">
+            <button class="option">A</button>
+            <button class="option">B</button>
+            <button class="option">C</button>
+            <button class="option">D</button>
+        </div>
+
+        <!-- Selected answer, correct answer and explanation -->
+        <h3 id="selectedOption"></h3>
+        <p id="correctAnswer"></p>
+        <p id="explanation"></p>
+
+        <!-- Navigation buttons -->
+        <div style="display: flex; width: 80%; margin: 20px auto;">
+            <button id="restartBtn" style="flex: 1;">Restart</button>
+            <div style="flex: 1;"></div>
+            <button id="nextBtn" style="flex: 1;">Next</button>
+        </div>
+
+        <!-- Final score and rating -->
+        <div id="result" style="display: none;">
+            <h2>Quiz Completed!</h2>
+            <p id="finalScore"></p>
+            <p id="rating"></p>
+            <button id="reviewBtn">Review Answers</button>
+        </div>
+
+        <!-- Answer review -->
+        <div id="review" style="display: none;">
+            <h2>Answer Review</h2>
+            <div id="reviewList"></div>
+            <button id="backBtn">Back to Results</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
